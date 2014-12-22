@@ -3,10 +3,23 @@
     <title>Ads – AngularJS</title>
     <link rel="stylesheet" href="styles/bootstrap.css">
     <link rel="stylesheet" href="styles/main.css">
+    <meta charset="utf-8">
 </head>
 <body>
 
-<div ng-view></div>
+<section class="login-container">
+    <form class="form-login" role="form">
+        <h2 class="form-login-heading text-center">Login</h2>
+        <hr>
+        <label for="inputEmail">Username:</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
+        <label for="inputPassword">Password:</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+        <button class="btn btn-default center-block" type="submit">Login</button>
+        <a href="#" class="regHere">Register here</a>
+    </form>
+</section>
 
 <script src="libs/angular.js"></script>
 <script src="libs/angular-route.js"></script>
