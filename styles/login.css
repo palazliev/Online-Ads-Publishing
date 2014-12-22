@@ -1,0 +1,10 @@
+.login-container{
+    width: 400px;
+}
+
+.regHere{
+    position: relative;
+    left:100px;
+    top: 10px;
+    border-bottom: thin dotted #072bff;
+}
