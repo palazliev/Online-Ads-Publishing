@@ -61,3 +61,6 @@ hr{
     top: 10px;
     border-bottom: thin dotted #072bff;
 }
+input{
+    display: inline-block;
+}
