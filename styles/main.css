@@ -13,6 +13,10 @@ section{
     box-sizing: border-box;
 }
 
+.form-group{
+    padding-left: 10px;
+}
+
 .form {
     padding:10px 30px;
 }
@@ -40,7 +44,8 @@ label{
 }
 
 .btn{
-    margin:20px 0 0;
+    margin: 0 5%;
+    display: inline-block;
     border-color: green;
     background-color: #4cae4c;
     color: #ffffff;
@@ -48,7 +53,16 @@ label{
     padding: 10px 40px;
     border-radius: 7px;
     font-size: 16px;
-    display: inline-block;
+}
+
+
+.btnHref{
+    margin: 15px auto;
+}
+
+.logOrReg{
+    border-bottom: thin dotted #072bff;
+    margin-left: 10%;
 }
 
 hr{
