@@ -3,32 +3,28 @@
 }
 
 .listAdsPhoto{
-    width: 25%;
     height: 32%;
     padding: 10px;
-    margin: 10px;
+    margin-top: 15px;
     box-sizing: border-box;
     border: thin dashed green;
     background-color: #c1e2b3;
 }
 
 .listAds{
-    width: 700px;
     border-radius: 0;
     padding: 15px;
 }
 .listAdsDetails{
-    width: 70%;
+    box-sizing: border-box;
 }
 .info{
-    width: 70%;
     border: thin dashed green;
-    margin: 10px;
+    margin: 10px 0;
     padding: 7px;
     background-color: #c1e2b3;
 }
 .description .info{
-    width: 95%;
     word-wrap: break-word;
 
 }
