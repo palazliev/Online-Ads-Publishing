@@ -10,3 +10,6 @@
 .register-container .logOrReg{
     margin-left: 25%;
 }
+.register-container h2{
+    display: block;
+}
