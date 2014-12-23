@@ -45,6 +45,9 @@ aside{
     font-weight: normal;
 }
 
+.aside li:hover{
+    color:orange;
+}
 
 .form {
     padding:10px 30px;
