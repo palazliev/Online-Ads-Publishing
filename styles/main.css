@@ -1,5 +1,4 @@
 body {
-    padding-top: 40px;
     padding-bottom: 40px;
     background-color: #eee;
     margin:0 auto;
@@ -15,9 +14,17 @@ section{
     box-sizing: border-box;
 }
 
+header, footer {
+    display: block;
+    background-color: palegreen;
+    margin: 0;
+    padding: 0;
+}
+
 .aside{
     margin:0 25px;
     margin-bottom: 20px;
+    border-radius: 0;
 }
 .aside .btn{
     display: block;
@@ -94,7 +101,12 @@ hr{
 input{
     display: inline-block;
 }
-
+h1{
+    margin: 0;
+    padding: 15px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
 h2{
     display: inline-block;
 }
