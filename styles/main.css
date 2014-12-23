@@ -2,9 +2,11 @@ body {
     padding-top: 40px;
     padding-bottom: 40px;
     background-color: #eee;
+    margin:0 auto;
 }
 
 section{
+    display: inline-block;
     background-color: palegreen;
     margin: 0 auto;
     border-radius: 10px;
@@ -13,9 +15,29 @@ section{
     box-sizing: border-box;
 }
 
+.aside{
+    margin:0 25px;
+    margin-bottom: 20px;
+}
+.aside .btn{
+    display: block;
+    margin: 10px 0;
+}
 .form-group{
     padding-left: 10px;
 }
+aside{
+
+}
+.aside li{
+    list-style-type: none;
+    text-align: center;
+    position: relative;
+    left: -20px;
+    font-size: 22px;
+    font-weight: normal;
+}
+
 
 .form {
     padding:10px 30px;
