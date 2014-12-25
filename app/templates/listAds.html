@@ -1,13 +1,3 @@
-<div class="col-md-8">
-    <ul>
-        <li ng-repeat="ad in data.ads">
-            {{ad}}
-        </li>
-    </ul>
-
-</div>
-
-
 <div class="clearfix">
     <aside class="col-md-3 pull-right top-right">
         <section class="aside col-md-10">
@@ -24,9 +14,6 @@
             <h3 class="text-center">Towns</h3>
             <hr>
             <ul class="ol-md-12">
-                <li>asasas</li>
-                <li>asasas</li>
-                <li>asasas</li>
                 <li>asasas</li>
             </ul>
         </section>
@@ -60,8 +47,8 @@
                     <span class="label pull-right">Tel</span>
                 </div>
             </div>
-            <div class="listAdsPhoto pull-right col-md-3">
-                <img ng-src="{{ad.imageDataUrl}}">
+            <div class="image-container listAdsPhoto pull-right col-md-3">
+                <img class="image" ng-src="{{ad.imageDataUrl}}">
             </div>
         </div>
 
