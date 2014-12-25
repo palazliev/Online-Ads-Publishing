@@ -1,39 +1,15 @@
-<div>
-    <section class="listAds col-md-9">
-        <div class="listAdsHeader clearfix">
-            <h2 class="">iPhone for sale</h2>
-            <span class="date pull-right">03-Jan-2015</span>
-        </div>
-        <div class="listAdsMain clearfix">
+<div class="col-md-8">
+    <ul>
+        <li ng-repeat="ad in data.ads">
+            {{ad}}
+        </li>
+    </ul>
 
-            <div class="listAdsDetails pull-right col-md-9">
-                <div class="description">
-                    <div class="info pull-right col-md-12">
-                        asdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasdasd
-                    </div>
-                </div>
-                <div class="infoPart">
-                    <div class="info pull-right col-md-10">Some Name</div>
-                    <span class="label pull-right">Name</span>
-                </div>
+</div>
 
-                <div class="infoPart">
 
-                    <div class="info pull-right col-md-10">Some Email</div>
-                    <span class="label pull-right">Email</span>
-                </div>
-
-                <div class="infoPart">
-
-                    <div class="info pull-right col-md-10">Some Tel</div>
-                    <span class="label pull-right">Tel</span>
-                </div>
-            </div>
-            <div class="listAdsPhoto pull-right col-md-3">PHOTO</div>
-        </div>
-
-    </section>
-    <aside class="col-md-3">
+<div class="clearfix">
+    <aside class="col-md-3 pull-right top-right">
         <section class="aside col-md-10">
             <h3 class="text-center">Categories</h3>
             <hr>
@@ -55,4 +31,39 @@
             </ul>
         </section>
     </aside>
+    <section class="listAds col-md-9" ng-repeat="ad in data.ads" style="margin-bottom: 20px">
+        <div class="listAdsHeader clearfix">
+            <h2>{{ad.title}}</h2>
+            <span class="date pull-right">{{ad.date | date}}</span>
+        </div>
+        <div class="listAdsMain clearfix">
+
+            <div class="listAdsDetails pull-right col-md-9">
+                <div class="description">
+                    <div class="info pull-right col-md-12">
+                        {{ad.text}}
+                    </div>
+                </div>
+                <div class="infoPart">
+                    <div class="info pull-right col-md-10">{{ad.ownerName}}</div>
+                    <span class="label pull-right">Name</span>
+                </div>
+
+                <div class="infoPart">
+
+                    <div class="info pull-right col-md-10">{{ad.ownerEmail}}</div>
+                    <span class="label pull-right">Email</span>
+                </div>
+
+                <div class="infoPart">
+
+                    <div class="info pull-right col-md-10">{{ad.ownerPhone}}</div>
+                    <span class="label pull-right">Tel</span>
+                </div>
+            </div>
+            <div class="listAdsPhoto pull-right col-md-3"><img ng-src="data:image/JPEG;base64,{{ad.imageDataUrl}}"></div>
+        </div>
+
+    </section>
+
 </div>
