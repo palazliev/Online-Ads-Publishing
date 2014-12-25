@@ -15,7 +15,7 @@
             </ul>
         </section>
     </aside>
-    <section class="listAds col-md-9" ng-repeat="ad in data.ads" style="margin-bottom: 20px">
+    <section class="listAds col-md-9" ng-repeat="ad in data.ads | orderBy:'categoryId'" style="margin-bottom: 20px">
         <div class="listAdsHeader clearfix">
             <h2>{{ad.title}}</h2>
             <span class="date pull-right">{{ad.date | date: 'd-MMM-yyyy'}}</span>
