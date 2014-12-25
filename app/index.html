@@ -15,59 +15,30 @@
 <header>
     <h1 class="text-center">Ads - Home</h1>
 </header>
-<div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <a href="../" class="navbar-brand">SoftUni App</a>
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div class="navbar-collapse collapse" id="navbar-main">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="../help/">Login</a>
-                </li>
-                <li>
-                    <a href="#/register">Register</a>
-                </li>
-
-            </ul>
-
-
-
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-
 
 
 <div class="col-md-1"></div>
 <div class="col-md-11">
     <aside class="col-md-2">
         <section class="aside col-md-10">
+
             <h4 class="text-center">To publish a new ad, please login.</h4>
+            <a href="#/login">
             <button class="btn btn-default center-block col-md-12">Login</button>
-            <button class="btn btn-default center-block col-md-12">Register</button>
+            </a>
+            <a href="#/register">
+                <button class="btn btn-default center-block col-md-12">Register</button>
+            </a>
         </section>
     </aside>
+
     <div class="partial col-md-9">
         <div class="parts">
             <div ng-view class="jumbotron">
 
-
             </div>
         </div>
     </div>
-
 </div>
 
 
