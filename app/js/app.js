@@ -1,3 +1,1 @@
-/**
- * Created by palazliev on 12/25/2014.
- */
+var softUni = angular.module('softUniModule', []);

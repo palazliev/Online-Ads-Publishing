@@ -11,10 +11,11 @@
     <meta charset="utf-8">
 </head>
 
-<body>
+<body ng-app="softUniModule" ng-controller="HelloController">
 <header>
     <h1 class="text-center">Ads - Home</h1>
 </header>
+<div class="jumbotron">{{name}}</div>
 <div class="col-md-1"></div>
 <div class="col-md-11">
     <aside class="col-md-2">
@@ -57,9 +58,16 @@
 </footer>
 
 
+
 <script src="lib/angular/angular.js"></script>
 <script src="lib/angular/angular-route.js"></script>
 <script src="js/app.js"></script>
+<script>
+    softUni.controller('HelloController',
+            function HelloController($scope){
+                $scope.name='name';
+            });
+</script>
 </body>
 
 </html>
