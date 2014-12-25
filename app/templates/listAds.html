@@ -34,10 +34,9 @@
     <section class="listAds col-md-9" ng-repeat="ad in data.ads" style="margin-bottom: 20px">
         <div class="listAdsHeader clearfix">
             <h2>{{ad.title}}</h2>
-            <span class="date pull-right">{{ad.date | date}}</span>
+            <span class="date pull-right">{{ad.date | date: 'd-MMM-yyyy'}}</span>
         </div>
         <div class="listAdsMain clearfix">
-
             <div class="listAdsDetails pull-right col-md-9">
                 <div class="description">
                     <div class="info pull-right col-md-12">
@@ -61,7 +60,9 @@
                     <span class="label pull-right">Tel</span>
                 </div>
             </div>
-            <div class="listAdsPhoto pull-right col-md-3"><img ng-src="data:image/JPEG;base64,{{ad.imageDataUrl}}"></div>
+            <div class="listAdsPhoto pull-right col-md-3">
+                <img ng-src="{{ad.imageDataUrl}}">
+            </div>
         </div>
 
     </section>
