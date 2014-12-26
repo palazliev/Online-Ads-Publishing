@@ -3,11 +3,11 @@
         <h2 class="form-heading text-center">Login</h2>
         <hr>
         <label for="inputUsername">Username:</label>
-        <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+        <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus ng-model="user.username">
         <label for="inputPassword">Password:</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="user.password">
         <div class="btnHref">
-            <button class="btn btn-default center-block" type="submit">Login</button>
+            <button class="btn btn-default center-block" type="submit" ng-click="login(user)">Login</button>
             <a href="#/register" class="logOrReg">Register here</a>
         </div>
     </form>

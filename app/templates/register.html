@@ -34,15 +34,11 @@
         <div class="form-group">
             <label for="registerTown">Town:</label>
             <select class="form-control registerTown">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <option ng-repeat="town in allTowns" title="{{town.name}}" value="{{town.name}}">{{town.name}}</option>
             </select>
         </div>
         <div class="form-group">
-            <button class="btn btn-default center-block" type="submit">Login</button>
+            <button class="btn btn-default center-block" type="submit">Register</button>
         </div>
         <div class="form-group">
             <a href="#/login" class="logOrReg">Login here</a>

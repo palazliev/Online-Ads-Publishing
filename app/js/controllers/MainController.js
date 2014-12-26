@@ -8,4 +8,5 @@ softUni.controller('SoftUniController', function($scope, mainData){
     mainData.getAllCategories(function(resp){
         $scope.allCategories=resp;
     });
-})
+
+});
