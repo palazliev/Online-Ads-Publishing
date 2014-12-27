@@ -8,10 +8,13 @@ softUni.factory('loginService', function($http, $q, $window){
             .then(function(result) {
             userInfo = {
                 accessToken: result.data.access_token,
-                userName: result.data.userName
+                userName: result.data.userName,
             };
+
+
             $window.sessionStorage["userInfo"] = JSON.stringify(userInfo);
             deferred.resolve(userInfo);
+                $window.location='#/listAds';
         }, function(error) {
             deferred.reject(error);
         });
@@ -19,8 +22,23 @@ softUni.factory('loginService', function($http, $q, $window){
         return deferred.promise;
     }
 
+    function getUserInfo() {
+        return userInfo;
+    }
+
+    function init() {
+        if ($window.sessionStorage["userInfo"]) {
+            userInfo = JSON.parse($window.sessionStorage["userInfo"]);
+        }
+    }
+
+    init();
+
+
+
     return {
-        login: login
+        login: login,
+        getUserInfo: getUserInfo
     };
 
 });
