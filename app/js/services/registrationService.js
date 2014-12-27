@@ -6,15 +6,14 @@ softUni.factory('registrationService', function($http, $q, $window, $rootScope){
 
         $http.post('http://softuni-ads.azurewebsites.net/api/user/register', regUser)
             .then(function(result) {
-                $rootScope.userInfo = {
-                    accessToken: result.data.access_token,
-                    userName: result.data.username,
-                    townId: selected
-                };
-
-                $window.sessionStorage["userInfo"] = JSON.stringify($rootScope.userInfo);
-                deferred.resolve($rootScope.userInfo);
-                $window.location='#/listAds';
+                $rootScope.regSccMsg="Registration successfull. Plesae login."
+                regUser.username="";
+                regUser.password="";
+                regUser.confirmPassword="";
+                regUser.email="";
+                regUser.name="";
+                regUser.phone="";
+                selected='';
             }, function(error) {
                 deferred.reject(error);
                 console.log("Registration error");

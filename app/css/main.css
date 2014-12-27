@@ -38,9 +38,8 @@ footer{
     margin-top: 20px;
 }
 
-.error{
-    border-radius: 10px;
-    background-color: red;
+.alert-danger, .alert-success{
+    border-radius: 5px;
     margin: 10px;
     padding: 10px;
     font-size: 20px;
