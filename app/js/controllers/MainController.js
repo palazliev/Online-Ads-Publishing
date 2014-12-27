@@ -1,4 +1,4 @@
-softUni.controller('SoftUniController', function($scope, mainData){
+softUni.controller('SoftUniController', function($scope, mainData, loginService){
     mainData.getAllAds(function(resp){
         $scope.data=resp;
     });
@@ -8,5 +8,8 @@ softUni.controller('SoftUniController', function($scope, mainData){
     mainData.getAllCategories(function(resp){
         $scope.allCategories=resp;
     });
+    $scope.logout=function(){
+        loginService.logout();
+    };
 
 });

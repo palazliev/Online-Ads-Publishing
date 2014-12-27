@@ -12,14 +12,16 @@
 </head>
 
 <body ng-app="softUniModule" ng-controller="SoftUniController">
-<header>
+<header class="clearfix">
     <h1 class="text-center">Ads - Home</h1>
+    <span  ng-bind="userInfo.userName"></span>
+    <a class="logout" ng-show="userInfo" ng-click="logout()">Logout</a>
 </header>
 
 
 <div class="col-md-1"></div>
 <div class="col-md-11">
-    <aside class="col-md-2">
+    <aside class="col-md-2 jumbotron">
         <section class="aside col-md-10">
 
             <h4 class="text-center">To publish a new ad, please login.</h4>

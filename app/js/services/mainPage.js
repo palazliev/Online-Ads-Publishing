@@ -1,4 +1,5 @@
-softUni.factory('mainData', function($http, $log){
+softUni.factory('mainData', function($http, $log, $window, $rootScope){
+
     return{
         getAllAds:function(success){
             $http({method:'GET', url:'http://softuni-ads.azurewebsites.net/api/ads?PageSize=10&startpage=1'})
@@ -28,4 +29,5 @@ softUni.factory('mainData', function($http, $log){
                 })
         }
     }
-})
+
+});

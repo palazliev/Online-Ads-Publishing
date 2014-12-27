@@ -1,4 +1,4 @@
-softUni.factory('loginService', function($http, $q, $window){
+softUni.factory('loginService', function($http, $q, $window, $rootScope){
     var userInfo;
 
     function login(user) {
@@ -6,20 +6,26 @@ softUni.factory('loginService', function($http, $q, $window){
 
         $http.post('http://softuni-ads.azurewebsites.net/api/user/login', user)
             .then(function(result) {
-            userInfo = {
+            $rootScope.userInfo = {
                 accessToken: result.data.access_token,
-                userName: result.data.userName,
+                userName: result.data.username
             };
 
-
-            $window.sessionStorage["userInfo"] = JSON.stringify(userInfo);
-            deferred.resolve(userInfo);
-                $window.location='#/listAds';
+            $window.sessionStorage["userInfo"] = JSON.stringify($rootScope.userInfo);
+            deferred.resolve($rootScope.userInfo);
+            $window.location='#/listAds';
         }, function(error) {
             deferred.reject(error);
+                console.log("error login");
         });
 
         return deferred.promise;
+    }
+
+    function logout() {
+        delete sessionStorage["userInfo"];
+        $rootScope.userInfo = null;
+        $window.location = '#/login';
     }
 
     function getUserInfo() {
@@ -34,10 +40,9 @@ softUni.factory('loginService', function($http, $q, $window){
 
     init();
 
-
-
     return {
         login: login,
+        logout: logout,
         getUserInfo: getUserInfo
     };
 
