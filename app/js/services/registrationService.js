@@ -17,7 +17,8 @@ softUni.factory('registrationService', function($http, $q, $window, $rootScope){
                 $window.location='#/listAds';
             }, function(error) {
                 deferred.reject(error);
-                console.log("error login");
+                console.log("Registration error");
+                $rootScope.regErrMsg="Registration error";
             });
 
         return deferred.promise;

@@ -19,7 +19,8 @@ softUni.factory('loginService', function($http, $q, $window, $rootScope){
 
         }, function(error) {
             deferred.reject(error);
-                console.log("error login");
+                console.log(error.data.error_description);
+                $rootScope.errMsg=error.data.error_description;
         });
 
         return deferred.promise;
