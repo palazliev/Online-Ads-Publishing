@@ -1,10 +1,11 @@
 var softUni = angular.module('softUniModule', ['ngRoute'])
     .config(function ($routeProvider) {
         $routeProvider.when('/register', {
-            templateUrl: 'templates/register.html'
+            templateUrl: 'templates/register.html',
+            controller:'registerController'
         });
         $routeProvider.when('/listAds', {
-            templateUrl: 'templates/listAds.html',
+            templateUrl: 'templates/listAds.html'
             //resolve: {
             //    auth: ["$q", "loginService", function($q, loginService) {
             //        var userInfo = loginService.getUserInfo();
