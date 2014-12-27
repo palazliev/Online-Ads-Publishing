@@ -13,7 +13,10 @@ softUni.factory('loginService', function($http, $q, $window, $rootScope){
 
             $window.sessionStorage["userInfo"] = JSON.stringify($rootScope.userInfo);
             deferred.resolve($rootScope.userInfo);
+                user.username='';
+                user.password='';
             $window.location='#/listAds';
+
         }, function(error) {
             deferred.reject(error);
                 console.log("error login");
@@ -25,7 +28,7 @@ softUni.factory('loginService', function($http, $q, $window, $rootScope){
     function logout() {
         delete sessionStorage["userInfo"];
         $rootScope.userInfo = null;
-        $window.location = '#/login';
+        $window.location = '#/listAds';
     }
 
     function getUserInfo() {
