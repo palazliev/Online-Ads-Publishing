@@ -11,17 +11,38 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
     $scope.logout=function(){
         loginService.logout();
     };
-    $scope.filterAds=function(category){
-            var deferred = $q.defer();
-            var url='http://softuni-ads.azurewebsites.net/api/ads?categoryid=' + category.id;
+    $scope.filterAdsCat=function(category){
+        var deferred = $q.defer();
+        if($scope.currentTownId){
+            url='http://softuni-ads.azurewebsites.net/api/ads?categoryid=' + category.id + '&townid=' + $scope.currentTownId;
+        }else{
+            url='http://softuni-ads.azurewebsites.net/api/ads?categoryid=' + category.id;
+        }
+        $scope.currentCatId=category.id;
             $http({method:'GET', url:url})
                 .then(function(result) {
                     $scope.data=result.data;
-                    console.log($scope.data)
                 }, function(error) {
                     deferred.reject(error);
                 });
             return deferred.promise;
     };
 
+    $scope.filterAdsTown=function(town){
+        var deferred = $q.defer();
+        var url='';
+        if($scope.currentCatId){
+            url='http://softuni-ads.azurewebsites.net/api/ads?categoryid=' + $scope.currentCatId + '&townid=' + town.id;
+        }else{
+            url='http://softuni-ads.azurewebsites.net/api/ads?townid=' + town.id;
+        }
+        $scope.currentTownId=town.id;
+        $http({method:'GET', url:url})
+            .then(function(result) {
+                $scope.data=result.data;
+            }, function(error) {
+                deferred.reject(error);
+            });
+        return deferred.promise;
+    };
 });

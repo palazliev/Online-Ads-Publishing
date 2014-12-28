@@ -3,12 +3,12 @@
         <section class="aside col-md-10">
             <h3 class="text-center">Categories</h3>
             <hr>
-            <select class="form-control" ng-model="category" ng-change="filterAds(category)" ng-options="category as category.name for category in  allCategories"></select>
+            <select class="form-control" ng-model="category" ng-change="filterAdsCat(category)" ng-options="category as category.name for category in  allCategories"></select>
         </section>
         <section class="aside col-md-10">
             <h3 class="text-center">Towns</h3>
             <hr>
-            <select class="form-control" ng-model="town" ng-change="" ng-options="town as town.name for town in  allTowns"></select>
+            <select class="form-control" ng-model="town" ng-change="filterAdsTown(town)" ng-options="town as town.name for town in  allTowns"></select>
         </section>
     </aside>
     <section class="listAds col-md-9" ng-repeat="ad in data.ads | orderBy:'categoryId'" style="margin-bottom: 20px">
