@@ -1,4 +1,4 @@
-softUni.controller('SoftUniController', function($scope, mainData, loginService){
+softUni.controller('SoftUniController', function($scope, mainData, loginService, $q, $http){
     mainData.getAllAds(function(resp){
         $scope.data=resp;
     });
@@ -10,6 +10,18 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService)
     });
     $scope.logout=function(){
         loginService.logout();
+    };
+    $scope.filterAds=function(category){
+            var deferred = $q.defer();
+            var url='http://softuni-ads.azurewebsites.net/api/ads?categoryid=' + category.id;
+            $http({method:'GET', url:url})
+                .then(function(result) {
+                    $scope.data=result.data;
+                    console.log($scope.data)
+                }, function(error) {
+                    deferred.reject(error);
+                });
+            return deferred.promise;
     };
 
 });

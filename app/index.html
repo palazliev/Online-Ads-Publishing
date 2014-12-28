@@ -22,7 +22,7 @@
 <div class="col-md-1"></div>
 <div class="col-md-11">
     <aside class="col-md-2 jumbotron">
-        <section class="aside col-md-10">
+        <section class="aside col-md-10" ng-hide="userInfo">
             <h4 class="text-center">To publish a new ad, please login.</h4>
             <a href="#/login">
             <button class="btn btn-default center-block col-md-12">Login</button>
@@ -31,17 +31,17 @@
                 <button class="btn btn-default center-block col-md-12">Register</button>
             </a>
         </section>
-        <section class="aside col-md-10">
+        <section class="aside col-md-10" ng-show="userInfo">
             <h3 class="text-center">Navigation</h3>
             <hr>
             <ul class="ol-md-12">
-                <li>Home</li>
-                <li>My Ads</li>
-                <li>Publish New Ad</li>
+                <a href="#/listAds"> <li>Home</li></a>
+                <a href="#/myAds"> <li>My Ads</li> </a>
+                <a href="#/publish"> <li>Publish New Ad</li></a>
                 <li>Edit Profile</li>
             </ul>
         </section>
-        <section class="aside col-md-10">
+        <section class="aside col-md-10" ng-show="userInfo">
             <h3 class="text-center">My Ads</h3>
             <hr>
             <ul class="ol-md-12">

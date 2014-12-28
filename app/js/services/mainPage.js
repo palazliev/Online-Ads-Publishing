@@ -1,4 +1,5 @@
-softUni.factory('mainData', function($http, $log, $window, $rootScope){
+softUni.factory('mainData', function($http, $log, $window, $rootScope, $q){
+
 
     return{
         getAllAds:function(success){
@@ -28,6 +29,7 @@ softUni.factory('mainData', function($http, $log, $window, $rootScope){
                     $log.warn(data);
                 })
         }
+
     }
 
 });
