@@ -35,13 +35,13 @@
             <h3 class="text-center">Navigation</h3>
             <hr>
             <ul class="ol-md-12">
-                <a href="#/listAds"> <li>Home</li></a>
-                <a href="#/myAds"> <li>My Ads</li> </a>
-                <a href="#/publish"> <li>Publish New Ad</li></a>
+                <a href="#/listAds" ng-click="hideMyAds()"> <li>Home</li></a>
+                <a href="#/myAds" ng-click="loadMyAds()"> <li>My Ads</li> </a>
+                <a href="#/publish" ng-click="hideMyAds()"> <li>Publish New Ad</li></a>
                 <li>Edit Profile</li>
             </ul>
         </section>
-        <section class="aside col-md-10" ng-show="userInfo">
+        <section class="aside col-md-10" ng-show="showMyAdsMenu">
             <h3 class="text-center">My Ads</h3>
             <hr>
             <ul class="ol-md-12">
@@ -77,14 +77,16 @@
 <script src="js/controllers/MainController.js"></script>
 <script src="js/controllers/LoginController.js"></script>
 <script src="js/controllers/registerController.js"></script>
+<script src="js/controllers/publishNewAdController.js"></script>
 
 <script src="js/directives/loginDirective.js"></script>
 <script src="js/directives/registrationDirective.js"></script>
+<script src="js/directives/publishDirective.js"></script>
 
 <script src="js/services/mainPage.js"></script>
 <script src="js/services/loginService.js"></script>
 <script src="js/services/registrationService.js"></script>
-
+<script src="js/services/publishNewAdService.js"></script>
 
 </body>
 

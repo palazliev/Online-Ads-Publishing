@@ -45,4 +45,28 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
             });
         return deferred.promise;
     };
+
+    $scope.loadMyAds=function(){
+        var deferred = $q.defer();
+        var url='http://softuni-ads.azurewebsites.net/api/user/ads';
+        var accessToken = $scope.userInfo.accessToken;
+        var accHeader = 'Bearer '+accessToken;
+        var headers={Authorization: accHeader};
+        $http({method:'GET', url:url, headers:headers})
+            .then(function(result) {
+                $scope.myAds=result.data;
+                console.log($scope.myAds)
+            }, function(error) {
+                deferred.reject(error);
+                console.log(error);
+            });
+        return deferred.promise;
+    };
+
+    $scope.showMyAds=function(){
+        $scope.showMyAdsMenu=true;
+    };
+    $scope.hideMyAds=function(){
+        $scope.showMyAdsMenu=false;
+    };
 });

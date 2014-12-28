@@ -26,7 +26,8 @@ var softUni = angular.module('softUniModule', ['ngRoute'])
             templateUrl: 'templates/myAds.html'
         });
         $routeProvider.when('/publish', {
-            templateUrl: 'templates/publishNewAd.html'
+            templateUrl: 'templates/publishNewAd.html',
+            controller:'publishNewAdController'
         });
         $routeProvider.otherwise({redirectTo:'/listAds'});
 

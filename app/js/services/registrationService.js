@@ -6,7 +6,7 @@ softUni.factory('registrationService', function($http, $q, $window, $rootScope){
 
         $http.post('http://softuni-ads.azurewebsites.net/api/user/register', regUser)
             .then(function(result) {
-                $rootScope.regSccMsg="Registration successfull. Plesae login."
+                $rootScope.regSccMsg="Registration successful. Please login.";
                 regUser.username="";
                 regUser.password="";
                 regUser.confirmPassword="";

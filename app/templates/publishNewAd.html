@@ -1,38 +1,44 @@
-<section class="newAdd-container col-md-8">
+<section class="newAdd-container col-md-8" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <form class="form" role="form">
     <h3 class="form-heading text-center">Publish New Ad</h3>
     <hr>
     <div>
         <div>
         <div class="photo col-md-3 pull-right">photo</div>
         <div>
-            <div class="info pull-right col-md-6">BMW 320 for Sale</div>
+            <input type="text" class="info pull-right col-md-6" ng-model="publishData.title">
             <span class="label pull-right">Title</span>
         </div>
         <div>
-            <div class="info pull-right col-md-6"  style="height: 100px">I have a BMW 320 for Sale. Good price.</div>
+            <textarea class="info pull-right col-md-6"  style="height: 100px" ng-model="publishData.text"></textarea>
             <span class="label pull-right">Text:</span>
         </div>
         </div>
 
         <div>
             <div>
-                <button class="btn btn-default pull-right" type="submit">Login</button>
+                <button class="btn btn-default pull-right">Browse</button>
                 <div class="info pull-right col-md-6">sdsa</div>
                 <span class="label pull-right">image</span>
             </div>
             <div>
-                <select class="info pull-right col-md-9"></select>
+                <select class="info pull-right col-md-9" name="categories" ng-model="publishData.categoryid">
+                    <option ng-repeat="category in allCategories" title="{{category.name}}" value="{{category.id}}">{{category.name}}</option>
+                </select>
                 <span class="label pull-right">Category</span>
             </div>
             <div>
-                <select class="info pull-right col-md-9"></select>
+                <select class="info pull-right col-md-9" name="towns" ng-model="publishData.townid">
+                    <option ng-repeat="town in allTowns" title="{{town.name}}" value="{{town.id}}">{{town.name}}</option>
+                </select>
                 <span class="label pull-right">Town</span>
             </div>
         </div>
 
         <div>
-            <button class="btn btn-default center-block" type="submit">Login</button>
-            <button class="btn btn-default center-block" type="submit">Login</button>
+            <button class="btn btn-default center-block" type="submit" ng-click="publish(publishData)">Publish</button>
+            <button class="btn btn-default center-block">Cancel</button>
         </div>
     </div>
+        </form>
 </section>
