@@ -7,10 +7,11 @@ softUni.factory('publishNewAdService', function($http, $q, $window, $rootScope){
         var deferred = $q.defer();
         $http({method:'POST', url:'http://softuni-ads.azurewebsites.net/api/user/ads', headers:headers, data:publishData})
             .then(function(result) {
-                console.log('success')
+                $rootScope.publishSccMsg="Advertisement submitted for approval. Once approved, it will be published.";
             }, function(error) {
                 deferred.reject(error);
-                console.log('error')
+                $rootScope.publishErrMsg="Publish error.";
+
             });
 
         return deferred.promise;

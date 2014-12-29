@@ -58,10 +58,8 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         $http({method:'GET', url:url, headers:headers})
             .then(function(result) {
                 $scope.myAds=result.data;
-                console.log($scope.myAds)
             }, function(error) {
                 deferred.reject(error);
-                console.log(error);
             });
         return deferred.promise;
     };
@@ -80,13 +78,10 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         var deferred = $q.defer();
         $http({method:'GET', url:'http://softuni-ads.azurewebsites.net/api/ads?PageSize=10&startpage=1'})
             .then(function(result) {
-                console.log(result)
                 $scope.data=result.data;
             }, function(error) {
                 deferred.reject(error);
-                console.log('error')
             });
         return deferred.promise;
     }
-
 });

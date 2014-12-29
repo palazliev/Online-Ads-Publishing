@@ -1,34 +1,32 @@
-<section class="listAds col-md-12" ng-repeat="ad in data.ads | orderBy:'categoryId'" style="margin-bottom: 20px">
-    <div class="listAdsHeader clearfix">
-        <h2>{{ad.title}}</h2>
-        <span class="date pull-right">{{ad.date | date: 'd-MMM-yyyy'}}</span>
+<section class="listAds col-md-12" ng-repeat="myAd in myAds.ads | orderBy:'categoryId'" style="margin-bottom: 20px">
+    <div class="listAdsHeader clearfix col-md-9">
+        <h2>{{myAd.title}}</h2>
+        <span class="date pull-right">{{myAd.date | date: 'd-MMM-yyyy'}}</span>
     </div>
-    <div class="listAdsMain clearfix">
+    <div class="listAdsMain clearfix col-md-9">
         <div class="listAdsDetails pull-right col-md-9">
             <div class="description">
                 <div class="info pull-right col-md-12">
-                    {{ad.text}}
+                    {{myAd.text}}
                 </div>
             </div>
             <div class="infoPart">
-                <div class="info pull-right col-md-10">{{ad.ownerName}}</div>
-                <span class="label pull-right">Name</span>
+                <div class="info pull-right col-md-10">{{myAd.categoryName}}</div>
+                <span class="label pull-right">Category</span>
             </div>
 
             <div class="infoPart">
 
-                <div class="info pull-right col-md-10">{{ad.ownerEmail}}</div>
-                <span class="label pull-right">Email</span>
+                <div class="info pull-right col-md-10">{{myAd.townName}}</div>
+                <span class="label pull-right">Town</span>
             </div>
 
-            <div class="infoPart">
-
-                <div class="info pull-right col-md-10">{{ad.ownerPhone}}</div>
-                <span class="label pull-right">Tel</span>
-            </div>
         </div>
         <div class="image-container listAdsPhoto pull-right col-md-3">
             <img class="image" ng-src="{{ad.imageDataUrl}}">
         </div>
+    </div>
+    <div class="col-md-3">
+
     </div>
 </section>
