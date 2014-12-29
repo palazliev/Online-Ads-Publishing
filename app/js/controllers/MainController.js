@@ -51,6 +51,8 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
 
     $scope.loadMyAds=function(){
         $scope.showMyAds();
+        $scope.deactivateErrMsg=null;
+        $scope.deactivateSccMsg=null;
         var deferred = $q.defer();
         var url='http://softuni-ads.azurewebsites.net/api/user/ads';
         var accessToken = $scope.userInfo.accessToken;
@@ -59,7 +61,25 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         $http({method:'GET', url:url, headers:headers})
             .then(function(result) {
                 $scope.myAds=result.data;
+                console.log(result.data)
             }, function(error) {
+                deferred.reject(error);
+            });
+        return deferred.promise;
+    };
+
+    $scope.deactivateMyAd=function(myAdId){
+        var deferred = $q.defer();
+        var url='http://softuni-ads.azurewebsites.net/api/user/ads/deactivate/'+myAdId;
+        var accessToken = $scope.userInfo.accessToken;
+        var accHeader = 'Bearer '+accessToken;
+        var headers={Authorization: accHeader};
+        $http({method:'PUT', url:url, headers:headers})
+            .then(function(result) {
+                $scope.deactivateSccMsg=result.data.message;
+                console.log(result)
+            }, function(error) {
+                $scope.deactivateErrMsg=error.data.message;
                 deferred.reject(error);
             });
         return deferred.promise;
@@ -78,7 +98,7 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
     $scope.showAllAds=function(){
         $scope.hideMyAds();
         var deferred = $q.defer();
-        $http({method:'GET', url:'http://softuni-ads.azurewebsites.net/api/ads?PageSize=10&startpage=1'})
+        $http({method:'GET', url:'http://softuni-ads.azurewebsites.net/api/ads'})
             .then(function(result) {
                 $scope.data=result.data;
             }, function(error) {

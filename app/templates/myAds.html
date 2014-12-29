@@ -1,3 +1,5 @@
+<div class="alert-danger" ng-bind="deactivateErrMsg" ng-show="deactivateErrMsg">{{deactivateErrMsg}}</div>
+<div class="alert-success" ng-bind="deactivateSccMsg" ng-show="deactivateSccMsg">{{deactivateSccMsg}}</div>
 <section class="listAds col-md-12" ng-repeat="myAd in myAds.ads | orderBy:'categoryId'" style="margin-bottom: 20px">
     <div class="listAdsHeader clearfix col-md-9">
         <h2>{{myAd.title}}</h2>
@@ -23,13 +25,13 @@
 
         </div>
         <div class="image-container listAdsPhoto pull-right col-md-3">
-            <img class="image" ng-src="{{ad.imageDataUrl}}">
+            <img class="image" ng-src="{{myAd.imageDataUrl}}">
         </div>
     </div>
     <div class="col-md-3">
         <span class="label col-md-8 pull-right" style="top:0">Status</span>
-        <div class="info pull-right col-md-8"></div>
+        <div class="info pull-right col-md-8" style="text-align: center">{{myAd.status}}</div>
 
-        <button class="btn btn-default center-block pull-right col-md-7" type="submit" >Deactivate</button>
+        <button class="btn btn-default center-block pull-right col-md-7" ng-click="deactivateMyAd(myAd.id)">Deactivate</button>
     </div>
 </section>
