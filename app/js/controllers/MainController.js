@@ -50,6 +50,7 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
     };
 
     $scope.loadMyAds=function(){
+        $scope.showMyAds();
         var deferred = $q.defer();
         var url='http://softuni-ads.azurewebsites.net/api/user/ads';
         var accessToken = $scope.userInfo.accessToken;
@@ -75,6 +76,7 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
     };
 
     $scope.showAllAds=function(){
+        $scope.hideMyAds();
         var deferred = $q.defer();
         $http({method:'GET', url:'http://softuni-ads.azurewebsites.net/api/ads?PageSize=10&startpage=1'})
             .then(function(result) {
