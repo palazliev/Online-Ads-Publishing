@@ -17,7 +17,7 @@ softUni.factory('loginService', function($http, $q, $window, $rootScope){
             deferred.resolve($rootScope.userInfo);
                 user.username='';
                 user.password='';
-            $window.location='#/listAds';
+            $window.location='#/';
 
         }, function(error) {
             deferred.reject(error);
@@ -32,7 +32,7 @@ softUni.factory('loginService', function($http, $q, $window, $rootScope){
         delete sessionStorage["userInfo"];
         sessionStorage["isLoggedIn"]=false;
         $rootScope.userInfo = null;
-        $window.location = '#/listAds';
+        $window.location = '#/';
     }
 
     function getUserInfo() {

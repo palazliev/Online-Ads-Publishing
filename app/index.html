@@ -35,9 +35,9 @@
             <h3 class="text-center">Navigation</h3>
             <hr>
             <ul class="ol-md-12">
-                <a href="#/listAds" ng-click="showAllAds()"> <li>Home</li></a>
-                <a href="#/myAds" ng-click="loadMyAds()"> <li>My Ads</li> </a>
-                <a href="#/publish" ng-click="hideMyAds()"> <li>Publish New Ad</li></a>
+                <a href="#/user/home" ng-click="showAllAds()"> <li>Home</li></a>
+                <a href="#/user/ads" ng-click="loadMyAds()"> <li>My Ads</li> </a>
+                <a href="#/user/ads/publish" ng-click="hideMyAds()"> <li>Publish New Ad</li></a>
                 <li>Edit Profile</li>
             </ul>
         </section>
@@ -45,10 +45,10 @@
             <h3 class="text-center">My Ads</h3>
             <hr>
             <ul class="ol-md-12">
-                <li value="all" ng-click="loadMyAds()">All</li>
-                <li value="published" ng-click="loadMyAdsPublished()">Published</li>
+                <li ng-click="loadMyAds()">All</li>
+                <li ng-click="loadMyAdsPublished()">Published</li>
                 <li ng-click="loadMyAdsWaitingApproval()">Waiting Approval</li>
-                <li value="inactive" ng-click="loadMyAdsInactive()">Inactive</li>
+                <li ng-click="loadMyAdsInactive()">Inactive</li>
             </ul>
         </section>
     </aside>

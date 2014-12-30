@@ -163,7 +163,8 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         var headers={Authorization: accHeader};
         $http({method:'DELETE', url:url, headers:headers})
             .then(function(result) {
-                $window.location = '#/myAds';
+                $window.location = '#/user/ads';
+                $scope.deleteSccMsg=error.data.message;
                 $scope.loadMyAds();
 
                 console.log(result)

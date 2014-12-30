@@ -4,7 +4,21 @@ var softUni = angular.module('softUniModule', ['ngRoute'])
             templateUrl: 'templates/register.html',
             controller:'registerController'
         });
-        $routeProvider.when('/listAds', {
+        $routeProvider.when('/', {
+            templateUrl: 'templates/listAds.html'
+            //resolve: {
+            //    auth: ["$q", "loginService", function($q, loginService) {
+            //        var userInfo = loginService.getUserInfo();
+            //
+            //        if (userInfo) {
+            //            return $q.when(userInfo);
+            //        } else {
+            //            return $q.reject({ authenticated: false });
+            //        }
+            //    }]
+            //}
+        });
+        $routeProvider.when('/user/home', {
             templateUrl: 'templates/listAds.html'
             //resolve: {
             //    auth: ["$q", "loginService", function($q, loginService) {
@@ -22,17 +36,17 @@ var softUni = angular.module('softUniModule', ['ngRoute'])
             templateUrl: 'templates/login.html',
             controller:'loginController'
         });
-        $routeProvider.when('/myAds', {
+        $routeProvider.when('/user/ads', {
             templateUrl: 'templates/myAds.html'
         });
-        $routeProvider.when('/publish', {
+        $routeProvider.when('/user/ads/publish', {
             templateUrl: 'templates/publishNewAd.html',
             controller:'publishNewAdController'
         });
-        $routeProvider.when('/confirmDelete', {
+        $routeProvider.when('/user/ads/delete/', {
             templateUrl: 'templates/confirmDelete.html'
         });
-        $routeProvider.otherwise({redirectTo:'/listAds'});
+        $routeProvider.otherwise({redirectTo:'/'});
 
 
     });
