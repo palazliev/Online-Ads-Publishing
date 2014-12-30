@@ -127,6 +127,7 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         var headers={Authorization: accHeader};
         $http({method:'PUT', url:url, headers:headers})
             .then(function(result) {
+                $scope.loadMyAds();
                 $scope.deactivateSccMsg=result.data.message;
                 console.log(result)
             }, function(error) {
@@ -144,6 +145,7 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         var headers={Authorization: accHeader};
         $http({method:'PUT', url:url, headers:headers})
             .then(function(result) {
+                $scope.loadMyAds();
                 $scope.deactivateSccMsg=result.data.message;
                 console.log(result)
             }, function(error) {
@@ -161,6 +163,7 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         var headers={Authorization: accHeader};
         $http({method:'DELETE', url:url, headers:headers})
             .then(function(result) {
+                $scope.loadMyAds();
                 $scope.deactivateSccMsg=result.data.message;
                 console.log(result)
             }, function(error) {
