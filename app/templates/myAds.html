@@ -32,6 +32,9 @@
         <span class="label col-md-8 pull-right" style="top:0">Status</span>
         <div class="info pull-right col-md-8" style="text-align: center">{{myAd.status}}</div>
 
-        <button class="btn btn-default center-block pull-right col-md-7" ng-click="deactivateMyAd(myAd.id)">Deactivate</button>
+        <button class="btn btn-default center-block pull-right col-md-7" ng-hide="myAd.status=='Inactive'" ng-click="deactivateMyAd(myAd.id)">Deactivate</button>
+        <button class="btn btn-default center-block pull-right col-md-7" ng-show="myAd.status=='Inactive'" ng-click="deactivateMyAd(myAd.id)">Edit</button>
+        <button class="btn btn-default center-block pull-right col-md-7" ng-show="myAd.status=='Inactive'" ng-click="deactivateMyAd(myAd.id)">Publish Again</button>
+        <button class="btn btn-default center-block pull-right col-md-7" ng-show="myAd.status=='Inactive'" ng-click="deactivateMyAd(myAd.id)">Delete</button>
     </div>
 </section>
