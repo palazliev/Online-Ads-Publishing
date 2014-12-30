@@ -1,4 +1,4 @@
-softUni.controller('SoftUniController', function($scope, mainData, loginService, $q, $http){
+softUni.controller('SoftUniController', function($scope, mainData, loginService, $q, $http, $window){
     mainData.getAllAds(function(resp){
         $scope.data=resp;
         $scope.oldData=resp;
@@ -163,11 +163,28 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         var headers={Authorization: accHeader};
         $http({method:'DELETE', url:url, headers:headers})
             .then(function(result) {
+                $window.location = '#/myAds';
                 $scope.loadMyAds();
-                $scope.deactivateSccMsg=result.data.message;
+
                 console.log(result)
             }, function(error) {
-                $scope.deactivateErrMsg=error.data.message;
+                $scope.deleteErrMsg=error.data.message;
+                deferred.reject(error);
+            });
+        return deferred.promise;
+    };
+
+    $scope.confirmDeleteMyAd=function(myAdId){
+        var deferred = $q.defer();
+        var url='http://softuni-ads.azurewebsites.net/api/user/ads/'+myAdId;
+        var accessToken = $scope.userInfo.accessToken;
+        var accHeader = 'Bearer '+accessToken;
+        var headers={Authorization: accHeader};
+        $http({method:'GET', url:url, headers:headers})
+            .then(function(result) {
+                $scope.adToDelete=result.data;
+                console.log(result)
+            }, function(error) {
                 deferred.reject(error);
             });
         return deferred.promise;

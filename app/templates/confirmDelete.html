@@ -1,0 +1,33 @@
+<div class="alert-danger" ng-bind="deleteErrMsg" ng-show="deleteErrMsg">{{deleteErrMsg}}</div>
+<div class="alert-success" ng-bind="deleteSccMsg" ng-show="deleteSccMsg">{{deleteSccMsg}}</div>
+<section class="listAds col-md-9" style="margin-bottom: 20px">
+    <div class="listAdsHeader clearfix col-md-9">
+        <h2>{{adToDelete.title}}</h2>
+        <span class="date pull-right">{{adToDelete.date | date: 'd-MMM-yyyy'}}</span>
+    </div>
+    <div class="listAdsMain clearfix col-md-12">
+        <div class="listAdsDetails pull-right col-md-9">
+            <div class="description">
+                <div class="info pull-right col-md-12">
+                    {{adToDelete.text}}
+                </div>
+            </div>
+            <div class="infoPart">
+                <div class="info pull-right col-md-10">{{adToDelete.categoryName}}</div>
+                <span class="label pull-right">Category</span>
+            </div>
+
+            <div class="infoPart">
+
+                <div class="info pull-right col-md-10">{{adToDelete.townName}}</div>
+                <span class="label pull-right">Town</span>
+            </div>
+
+        </div>
+        <div class="image-container listAdsPhoto pull-right col-md-3">
+            <img class="image" ng-src="{{adToDelete.imageDataUrl}}">
+        </div>
+        <button class="btn btn-default center-block pull-right col-md-3" ng-click="loadMyAds()">Cancel</button>
+        <button class="btn btn-default center-block pull-right col-md-3" ng-click="deleteMyAd(adToDelete.id)">Delete</button>
+    </div>
+</section>

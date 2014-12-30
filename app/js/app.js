@@ -29,6 +29,9 @@ var softUni = angular.module('softUniModule', ['ngRoute'])
             templateUrl: 'templates/publishNewAd.html',
             controller:'publishNewAdController'
         });
+        $routeProvider.when('/confirmDelete', {
+            templateUrl: 'templates/confirmDelete.html'
+        });
         $routeProvider.otherwise({redirectTo:'/listAds'});
 
 
