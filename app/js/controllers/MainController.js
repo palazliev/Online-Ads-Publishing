@@ -68,6 +68,57 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         return deferred.promise;
     };
 
+    $scope.loadMyAdsInactive=function(){
+        $scope.showMyAds();
+        var deferred = $q.defer();
+        var url='http://softuni-ads.azurewebsites.net/api/user/ads?status=inactive';
+        var accessToken = $scope.userInfo.accessToken;
+        var accHeader = 'Bearer '+accessToken;
+        var headers={Authorization: accHeader};
+        $http({method:'GET', url:url, headers:headers})
+            .then(function(result) {
+                $scope.myAds=result.data;
+                console.log(result.data);
+            }, function(error) {
+                deferred.reject(error);
+            });
+        return deferred.promise;
+    };
+
+    $scope.loadMyAdsWaitingApproval=function(){
+        $scope.showMyAds();
+        var deferred = $q.defer();
+        var url='http://softuni-ads.azurewebsites.net/api/user/ads?status=waitingapproval';
+        var accessToken = $scope.userInfo.accessToken;
+        var accHeader = 'Bearer '+accessToken;
+        var headers={Authorization: accHeader};
+        $http({method:'GET', url:url, headers:headers})
+            .then(function(result) {
+                $scope.myAds=result.data;
+                console.log(result.data);
+            }, function(error) {
+                deferred.reject(error);
+            });
+        return deferred.promise;
+    };
+
+    $scope.loadMyAdsPublished=function(){
+        $scope.showMyAds();
+        var deferred = $q.defer();
+        var url='http://softuni-ads.azurewebsites.net/api/user/ads?status=published';
+        var accessToken = $scope.userInfo.accessToken;
+        var accHeader = 'Bearer '+accessToken;
+        var headers={Authorization: accHeader};
+        $http({method:'GET', url:url, headers:headers})
+            .then(function(result) {
+                $scope.myAds=result.data;
+                console.log(result.data);
+            }, function(error) {
+                deferred.reject(error);
+            });
+        return deferred.promise;
+    };
+
     $scope.deactivateMyAd=function(myAdId){
         var deferred = $q.defer();
         var url='http://softuni-ads.azurewebsites.net/api/user/ads/deactivate/'+myAdId;

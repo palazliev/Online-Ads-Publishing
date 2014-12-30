@@ -45,10 +45,10 @@
             <h3 class="text-center">My Ads</h3>
             <hr>
             <ul class="ol-md-12">
-                <li>All</li>
-                <li>Published</li>
-                <li>Waiting Approval</li>
-                <li>Inactive</li>
+                <li value="all" ng-click="loadMyAds()">All</li>
+                <li value="published" ng-click="loadMyAdsPublished()">Published</li>
+                <li ng-click="loadMyAdsWaitingApproval()">Waiting Approval</li>
+                <li value="inactive" ng-click="loadMyAdsInactive()">Inactive</li>
             </ul>
         </section>
     </aside>
