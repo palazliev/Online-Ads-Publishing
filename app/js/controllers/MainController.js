@@ -226,6 +226,25 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         return deferred.promise;
     };
 
+    $scope.changePassword=function(user){
+        var deferred = $q.defer();
+        var url='http://softuni-ads.azurewebsites.net/api/user/changepassword';
+        var accessToken = $scope.userInfo.accessToken;
+        var accHeader = 'Bearer '+accessToken;
+        var headers={Authorization: accHeader};
+        $http({method:'PUT', url:url, headers:headers, data:user})
+            .then(function(result) {
+                $scope.user=result.data;
+                $scope.changePasswordSccMsg=result.data.message;
+                $scope.getUser();
+                console.log(result)
+            }, function(error) {
+                $scope.changePasswordErrMsg=result.data.message;
+                deferred.reject(error);
+            });
+        return deferred.promise;
+    };
+
     $scope.showUserInfo=function(){
         $window.location = '#/user/profile';
         $scope.getUser();

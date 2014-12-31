@@ -1,5 +1,7 @@
 <div class="alert-danger" ng-bind="editUserErrMsg" ng-show="editUserErrMsg">{{editUserErrMsg}}</div>
 <div class="alert-success" ng-bind="editUserSccMsg" ng-show="editUserSccMsg">{{editUserSccMsg}}</div>
+<div class="alert-danger" ng-bind="changePasswordErrMsg" ng-show="changePasswordErrMsg">{{changePasswordErrMsg}}</div>
+<div class="alert-success" ng-bind="changePasswordSccMsg" ng-show="changePasswordSccMsg">{{changePasswordSccMsg}}</div>
 <section class="col-md-4" style="margin:0 50px">
     <form class="form" role="form">
         <h2 class="form-heading text-center">Edit Profile</h2>
@@ -26,15 +28,15 @@
         <h2 class="form-heading text-center">Change Password</h2>
         <hr>
         <label for="editPassword">Old password:</label>
-        <input type="text" id="editPassword" class="form-control" placeholder="Old password" required autofocus ng-model="user.password">
+        <input type="password" id="editPassword" class="form-control" placeholder="Old password" required autofocus ng-model="pass.oldPassword">
         <label for="newPassword">New Password:</label>
-        <input type="email" id="newPassword" class="form-control" placeholder="New Password" required ng-model="user.newPass">
+        <input type="password" id="newPassword" class="form-control" placeholder="New Password" required ng-model="pass.newPassword">
         <label for="confirmNewPass">Confirm New Password:</label>
-        <input type="text" id="confirmNewPass" class="form-control" placeholder="Confirm New Password" required autofocus ng-model="user.newPass">
+        <input type="password" id="confirmNewPass" class="form-control" placeholder="Confirm New Password" required autofocus ng-model="pass.confirmPassword">
 
         <div class="btnHref">
-            <button class="btn btn-default center-block" type="submit" ng-click="login(user)">Login</button>
-            <button class="btn btn-default center-block" type="submit" ng-click="login(user)">Login</button>
+            <button class="btn btn-default center-block" type="submit" ng-click="changePassword(pass)">Change Password</button>
+            <button class="btn btn-default center-block" type="submit" ng-click="">Cancel</button>
         </div>
     </form>
 </section>
