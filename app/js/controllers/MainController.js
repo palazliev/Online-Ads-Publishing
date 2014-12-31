@@ -191,6 +191,47 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         return deferred.promise;
     };
 
+    $scope.getUser=function(){
+        var deferred = $q.defer();
+        var url='http://softuni-ads.azurewebsites.net/api/user/profile';
+        var accessToken = $scope.userInfo.accessToken;
+        var accHeader = 'Bearer '+accessToken;
+        var headers={Authorization: accHeader};
+        $http({method:'GET', url:url, headers:headers})
+            .then(function(result) {
+                $scope.user=result.data;
+                console.log(result)
+            }, function(error) {
+                deferred.reject(error);
+            });
+        return deferred.promise;
+    };
+
+    $scope.editUser=function(user){
+        var deferred = $q.defer();
+        var url='http://softuni-ads.azurewebsites.net/api/user/profile';
+        var accessToken = $scope.userInfo.accessToken;
+        var accHeader = 'Bearer '+accessToken;
+        var headers={Authorization: accHeader};
+        $http({method:'PUT', url:url, headers:headers, data:user})
+            .then(function(result) {
+                $scope.user=result.data;
+                $scope.editUserSccMsg=result.data.message;
+                $scope.getUser();
+                console.log(result)
+            }, function(error) {
+                $scope.editUserErrMsg=result.data.message;
+                deferred.reject(error);
+            });
+        return deferred.promise;
+    };
+
+    $scope.showUserInfo=function(){
+        $window.location = '#/user/profile';
+        $scope.getUser();
+        $scope.hideMyAds();
+    };
+
     $scope.showMyAds=function(){
         $scope.showMyAdsMenu=true;
     };

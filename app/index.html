@@ -38,7 +38,7 @@
                 <a href="#/user/home" ng-click="showAllAds()"> <li>Home</li></a>
                 <a href="#/user/ads" ng-click="loadMyAds()"> <li>My Ads</li> </a>
                 <a href="#/user/ads/publish" ng-click="hideMyAds()"> <li>Publish New Ad</li></a>
-                <a href="#/user/profile" ng-click="hideMyAds()"> <li>Edit Profile</li></a>
+                <a ng-click="showUserInfo()"> <li>Edit Profile</li></a>
             </ul>
         </section>
         <section class="aside col-md-10" ng-show="showMyAdsMenu">

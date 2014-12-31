@@ -1,4 +1,5 @@
-<div class="alert-danger" ng-bind="errMsg" ng-show="errMsg">{{errMsg}}</div>
+<div class="alert-danger" ng-bind="editUserErrMsg" ng-show="editUserErrMsg">{{editUserErrMsg}}</div>
+<div class="alert-success" ng-bind="editUserSccMsg" ng-show="editUserSccMsg">{{editUserSccMsg}}</div>
 <section class="col-md-4" style="margin:0 50px">
     <form class="form" role="form">
         <h2 class="form-heading text-center">Edit Profile</h2>
@@ -8,14 +9,14 @@
         <label for="editEmail">Email:</label>
         <input type="email" id="editEmail" class="form-control" placeholder="Email" required ng-model="user.email">
         <label for="editPhone">Phone:</label>
-        <input type="text" id="editPhone" class="form-control" placeholder="Phone" required autofocus ng-model="user.phone">
+        <input type="text" id="editPhone" class="form-control" placeholder="Phone" required autofocus ng-model="user.phoneNumber">
         <label for="editTown">Town:</label>
-        <select class="form-control editTown" name="towns" ng-model="selected">
+        <select class="form-control editTown" name="towns" ng-model="user.townId">
             <option ng-repeat="town in allTowns" title="{{town.name}}" value="{{town.id}}">{{town.name}}</option>
         </select>
         <div class="btnHref">
-            <button class="btn btn-default center-block" type="submit" ng-click="login(user)">Login</button>
-            <button class="btn btn-default center-block" type="submit" ng-click="login(user)">Login</button>
+            <button class="btn btn-default center-block col-md-5" type="submit" ng-click="editUser(user)" style="margin-right: 0">Update</button>
+            <button class="btn btn-default center-block col-md-5" type="submit">Cancel</button>
         </div>
     </form>
 </section>

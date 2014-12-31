@@ -47,6 +47,7 @@ softUni.factory('loginService', function($http, $q, $window, $rootScope){
 
     init();
 
+
     return {
         login: login,
         logout: logout,
