@@ -46,6 +46,9 @@ var softUni = angular.module('softUniModule', ['ngRoute'])
         $routeProvider.when('/user/ads/delete/', {
             templateUrl: 'templates/confirmDelete.html'
         });
+        $routeProvider.when('/user/profile', {
+            templateUrl: 'templates/editProfile.html'
+        });
         $routeProvider.otherwise({redirectTo:'/'});
 
 

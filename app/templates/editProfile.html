@@ -1,25 +1,39 @@
 <div class="alert-danger" ng-bind="errMsg" ng-show="errMsg">{{errMsg}}</div>
-<section class="login-container col-md-4">
+<section class="col-md-4" style="margin:0 50px">
     <form class="form" role="form">
-        <h2 class="form-heading text-center">Login</h2>
+        <h2 class="form-heading text-center">Edit Profile</h2>
         <hr>
-        <label for="inputUsername">Username:</label>
-        <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus ng-model="user.username">
-        <label for="inputPassword">Password:</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="user.password">
-        <label for="inputUsername">Username:</label>
-        <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus ng-model="user.username">
-        <label for="inputPassword">Password:</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="user.password">
+        <label for="editName">Name:</label>
+        <input type="text" id="editName" class="form-control" placeholder="Name" required autofocus ng-model="user.name">
+        <label for="editEmail">Email:</label>
+        <input type="email" id="editEmail" class="form-control" placeholder="Email" required ng-model="user.email">
+        <label for="editPhone">Phone:</label>
+        <input type="text" id="editPhone" class="form-control" placeholder="Phone" required autofocus ng-model="user.phone">
+        <label for="editTown">Town:</label>
+        <select class="form-control editTown" name="towns" ng-model="selected">
+            <option ng-repeat="town in allTowns" title="{{town.name}}" value="{{town.id}}">{{town.name}}</option>
+        </select>
         <div class="btnHref">
             <button class="btn btn-default center-block" type="submit" ng-click="login(user)">Login</button>
-            <a href="#/register" class="logOrReg">Register here</a>
+            <button class="btn btn-default center-block" type="submit" ng-click="login(user)">Login</button>
         </div>
-        <div class="form-group">
-            <label for="registerTown">Town:</label>
-            <select class="form-control registerTown" name="towns" ng-model="selected">
-                <option ng-repeat="town in allTowns" title="{{town.name}}" value="{{town.id}}">{{town.name}}</option>
-            </select>
+    </form>
+</section>
+
+<section class="col-md-4">
+    <form class="form" role="form">
+        <h2 class="form-heading text-center">Change Password</h2>
+        <hr>
+        <label for="editPassword">Old password:</label>
+        <input type="text" id="editPassword" class="form-control" placeholder="Old password" required autofocus ng-model="user.password">
+        <label for="newPassword">New Password:</label>
+        <input type="email" id="newPassword" class="form-control" placeholder="New Password" required ng-model="user.newPass">
+        <label for="confirmNewPass">Confirm New Password:</label>
+        <input type="text" id="confirmNewPass" class="form-control" placeholder="Confirm New Password" required autofocus ng-model="user.newPass">
+
+        <div class="btnHref">
+            <button class="btn btn-default center-block" type="submit" ng-click="login(user)">Login</button>
+            <button class="btn btn-default center-block" type="submit" ng-click="login(user)">Login</button>
         </div>
     </form>
 </section>
