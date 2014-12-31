@@ -1,0 +1,25 @@
+<div class="alert-danger" ng-bind="errMsg" ng-show="errMsg">{{errMsg}}</div>
+<section class="login-container col-md-4">
+    <form class="form" role="form">
+        <h2 class="form-heading text-center">Login</h2>
+        <hr>
+        <label for="inputUsername">Username:</label>
+        <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus ng-model="user.username">
+        <label for="inputPassword">Password:</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="user.password">
+        <label for="inputUsername">Username:</label>
+        <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus ng-model="user.username">
+        <label for="inputPassword">Password:</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="user.password">
+        <div class="btnHref">
+            <button class="btn btn-default center-block" type="submit" ng-click="login(user)">Login</button>
+            <a href="#/register" class="logOrReg">Register here</a>
+        </div>
+        <div class="form-group">
+            <label for="registerTown">Town:</label>
+            <select class="form-control registerTown" name="towns" ng-model="selected">
+                <option ng-repeat="town in allTowns" title="{{town.name}}" value="{{town.id}}">{{town.name}}</option>
+            </select>
+        </div>
+    </form>
+</section>
