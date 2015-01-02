@@ -175,7 +175,7 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         return deferred.promise;
     };
 
-    $scope.confirmDeleteMyAd=function(myAdId){
+    $scope.getMyAd=function(myAdId){
         var deferred = $q.defer();
         var url='http://softuni-ads.azurewebsites.net/api/user/ads/'+myAdId;
         var accessToken = $scope.userInfo.accessToken;
@@ -183,7 +183,7 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         var headers={Authorization: accHeader};
         $http({method:'GET', url:url, headers:headers})
             .then(function(result) {
-                $scope.adToDelete=result.data;
+                $scope.myAd=result.data;
                 console.log(result)
             }, function(error) {
                 deferred.reject(error);
@@ -245,6 +245,23 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         return deferred.promise;
     };
 
+    $scope.editAd=function(myAd){
+        var deferred = $q.defer();
+        var url='http://softuni-ads.azurewebsites.net/api/user/ads/' + myAd.id;
+        var accessToken = $scope.userInfo.accessToken;
+        var accHeader = 'Bearer '+accessToken;
+        var headers={Authorization: accHeader};
+        $http({method:'PUT', url:url, headers:headers, data:myAd})
+            .then(function(result) {
+                $scope.changePasswordSccMsg=result.data.message;
+                console.log(result)
+            }, function(error) {
+                $scope.changePasswordErrMsg=result.data.message;
+                deferred.reject(error);
+            });
+        return deferred.promise;
+    };
+
     $scope.showUserInfo=function(){
         $window.location = '#/user/profile';
         $scope.getUser();
@@ -267,6 +284,7 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         $http({method:'GET', url:'http://softuni-ads.azurewebsites.net/api/ads'})
             .then(function(result) {
                 $scope.data=result.data;
+                $window.location = '#/user/ads';
             }, function(error) {
                 deferred.reject(error);
             });

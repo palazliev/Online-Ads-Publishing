@@ -49,6 +49,9 @@ var softUni = angular.module('softUniModule', ['ngRoute'])
         $routeProvider.when('/user/profile', {
             templateUrl: 'templates/editProfile.html'
         });
+        $routeProvider.when('/user/ads/edit', {
+            templateUrl: 'templates/editAd.html'
+        });
         $routeProvider.otherwise({redirectTo:'/'});
 
 

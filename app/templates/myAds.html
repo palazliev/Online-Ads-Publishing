@@ -33,8 +33,8 @@
         <div class="info pull-right col-md-8" style="text-align: center">{{myAd.status}}</div>
 
         <button class="btn btn-default center-block pull-right col-md-7" ng-hide="myAd.status=='Inactive'" ng-click="deactivateMyAd(myAd.id)">Deactivate</button>
-        <button class="btn btn-default center-block pull-right col-md-7" ng-show="myAd.status=='Inactive'" ng-click="deactivateMyAd(myAd.id)">Edit</button>
+        <a href="#/user/ads/edit"><button class="btn btn-default center-block pull-right col-md-7" ng-show="myAd.status=='Inactive'"  ng-click="getMyAd(myAd.id)">Edit</button></a>
         <button class="btn btn-default center-block pull-right col-md-7" ng-show="myAd.status=='Inactive'" ng-click="publishAgainMyAd(myAd.id)">Publish Again</button>
-        <a href="#/user/ads/delete/"> <button class="btn btn-default center-block pull-right col-md-7" ng-click="confirmDeleteMyAd(myAd.id)" ng-show="myAd.status=='Inactive'">Delete</button></a>
+        <a href="#/user/ads/delete/"> <button class="btn btn-default center-block pull-right col-md-7" ng-click="getMyAd(myAd.id)" ng-show="myAd.status=='Inactive'">Delete</button></a>
     </div>
 </section>

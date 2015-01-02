@@ -1,0 +1,48 @@
+<div class="alert-danger" ng-bind="publishErrMsg" ng-show="publishErrMsg">{{publishErrMsg}}</div>
+<div class="alert-success" ng-bind="publishSccMsg" ng-show="publishSccMsg">{{publishSccMsg}}</div>
+<section class="newAdd-container col-md-8" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <form class="form" role="form">
+        <h3 class="form-heading text-center">Edit Ad</h3>
+        <hr>
+        <div>
+            <div class="col-md-12">
+                <div class="photo col-md-3 pull-right">photo</div>
+                <div>
+                    <input type="text" class="info pull-right col-md-6" ng-model="myAd.title" placeholder="{{myAd.title}}">
+                    <span class="label pull-right">Title</span>
+                </div>
+                <div>
+                    <textarea class="info pull-right col-md-6"  style="height: 100px" ng-model="myAd.text" placeholder="{{myAd.text}}"></textarea>
+                    <span class="label pull-right">Text:</span>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div>
+                    <button class="btn btn-default pull-right">Change image</button>
+                    <button class="btn btn-default pull-right">Delete image</button>
+                    <button class="btn btn-default pull-right">Browse</button>
+                    <div class="info pull-right col-md-9">sdsa</div>
+                    <span class="label pull-right">image</span>
+                </div>
+                <div>
+                    <select class="info pull-right col-md-9" name="categories" ng-model="myAd.categoryId">
+                        <option ng-repeat="category in allCategories" title="{{category.name}}" value="{{category.id}}">{{category.name}}</option>
+                    </select>
+                    <span class="label pull-right">Category</span>
+                </div>.
+                <div>
+                    <select class="info pull-right col-md-9" name="towns" ng-model="myAd.townId">
+                        <option ng-repeat="town in allTowns" title="{{town.name}}" value="{{town.id}}">{{town.name}}</option>
+                    </select>
+                    <span class="label pull-right">Town</span>
+                </div>
+            </div>
+
+            <div>
+                <button class="btn btn-default center-block" type="submit" ng-click="editAd(myAd)">Edit</button>
+                <button class="btn btn-default center-block" ng-click="showAllAds()">Cancel</button>
+            </div>
+        </div>
+    </form>
+</section>7

@@ -18,7 +18,7 @@
         </select>
         <div class="btnHref">
             <button class="btn btn-default center-block col-md-5" type="submit" ng-click="editUser(user)" style="margin-right: 0">Update</button>
-            <button class="btn btn-default center-block col-md-5" type="submit">Cancel</button>
+            <button class="btn btn-default center-block col-md-5" type="submit" ng-click="showUserInfo()">Cancel</button>
         </div>
     </form>
 </section>
@@ -36,7 +36,7 @@
 
         <div class="btnHref">
             <button class="btn btn-default center-block" type="submit" ng-click="changePassword(pass)">Change Password</button>
-            <button class="btn btn-default center-block" type="submit" ng-click="">Cancel</button>
+            <button class="btn btn-default center-block" type="submit" ng-click="showUserInfo()">Cancel</button>
         </div>
     </form>
 </section>
