@@ -253,10 +253,10 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         var headers={Authorization: accHeader};
         $http({method:'PUT', url:url, headers:headers, data:myAd})
             .then(function(result) {
-                $scope.changePasswordSccMsg=result.data.message;
+                $scope.editSccMsg=result.data.message;
                 console.log(result)
             }, function(error) {
-                $scope.changePasswordErrMsg=result.data.message;
+                $scope.editErrMsg=error.data.message;
                 deferred.reject(error);
             });
         return deferred.promise;
