@@ -6,51 +6,95 @@ var softUni = angular.module('softUniModule', ['ngRoute'])
         });
         $routeProvider.when('/', {
             templateUrl: 'templates/listAds.html'
-            //resolve: {
-            //    auth: ["$q", "loginService", function($q, loginService) {
-            //        var userInfo = loginService.getUserInfo();
-            //
-            //        if (userInfo) {
-            //            return $q.when(userInfo);
-            //        } else {
-            //            return $q.reject({ authenticated: false });
-            //        }
-            //    }]
-            //}
         });
         $routeProvider.when('/user/home', {
-            templateUrl: 'templates/listAds.html'
-            //resolve: {
-            //    auth: ["$q", "loginService", function($q, loginService) {
-            //        var userInfo = loginService.getUserInfo();
-            //
-            //        if (userInfo) {
-            //            return $q.when(userInfo);
-            //        } else {
-            //            return $q.reject({ authenticated: false });
-            //        }
-            //    }]
-            //}
+            templateUrl: 'templates/listAds.html',
+            resolve: {
+                auth: ["$q", "loginService", function($q, loginService) {
+                    var userInfo = loginService.getUserInfo();
+
+                    if (userInfo) {
+                        return $q.when(userInfo);
+                    } else {
+                        return $q.reject({ authenticated: false });
+                    }
+                }]
+            }
         });
         $routeProvider.when('/login', {
             templateUrl: 'templates/login.html',
             controller:'loginController'
         });
         $routeProvider.when('/user/ads', {
-            templateUrl: 'templates/myAds.html'
+            templateUrl: 'templates/myAds.html',
+            resolve: {
+                auth: ["$q", "loginService", function($q, loginService) {
+                    var userInfo = loginService.getUserInfo();
+
+                    if (userInfo) {
+                        return $q.when(userInfo);
+                    } else {
+                        return $q.reject({ authenticated: false });
+                    }
+                }]
+            }
         });
         $routeProvider.when('/user/ads/publish', {
             templateUrl: 'templates/publishNewAd.html',
-            controller:'publishNewAdController'
+            controller:'publishNewAdController',
+            resolve: {
+                auth: ["$q", "loginService", function($q, loginService) {
+                    var userInfo = loginService.getUserInfo();
+
+                    if (userInfo) {
+                        return $q.when(userInfo);
+                    } else {
+                        return $q.reject({ authenticated: false });
+                    }
+                }]
+            }
         });
         $routeProvider.when('/user/ads/delete/', {
-            templateUrl: 'templates/confirmDelete.html'
+            templateUrl: 'templates/confirmDelete.html',
+            resolve: {
+                auth: ["$q", "loginService", function($q, loginService) {
+                    var userInfo = loginService.getUserInfo();
+
+                    if (userInfo) {
+                        return $q.when(userInfo);
+                    } else {
+                        return $q.reject({ authenticated: false });
+                    }
+                }]
+            }
         });
         $routeProvider.when('/user/profile', {
-            templateUrl: 'templates/editProfile.html'
+            templateUrl: 'templates/editProfile.html',
+            resolve: {
+                auth: ["$q", "loginService", function($q, loginService) {
+                    var userInfo = loginService.getUserInfo();
+
+                    if (userInfo) {
+                        return $q.when(userInfo);
+                    } else {
+                        return $q.reject({ authenticated: false });
+                    }
+                }]
+            }
         });
         $routeProvider.when('/user/ads/edit', {
-            templateUrl: 'templates/editAd.html'
+            templateUrl: 'templates/editAd.html',
+            resolve: {
+                auth: ["$q", "loginService", function($q, loginService) {
+                    var userInfo = loginService.getUserInfo();
+
+                    if (userInfo) {
+                        return $q.when(userInfo);
+                    } else {
+                        return $q.reject({ authenticated: false });
+                    }
+                }]
+            }
         });
         $routeProvider.otherwise({redirectTo:'/'});
 
