@@ -7,26 +7,9 @@
         <div>
             <div class="center-block clearfix">
                 <div class="col-md-3 pull-right">
-                    <div flow-init="{singleFile:true}"
-                         flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"
-                         class="ng-scope"
-                         flow-name="publishData.flow">
-                        <div class="ng-hide" ng-show="$flow.files.length">
-                            <img flow-img="$flow.files[0]" style="max-width: 150px">
+                        <div style="width: 150px; height: 200px;">
+                            <img ng-src="{{'data:image/jpeg;base64,'+ImageDataURL.base64}}" ng-show="ImageDataURL" style="max-width: 200px; max-height: 200px">
                         </div>
-                        <div>
-                        <span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn="">Select image<input
-                                type="file" style="visibility: hidden; position: absolute;"></span>
-                        <span class="btn btn-info ng-hide" ng-show="$flow.files.length" flow-btn="">Change<input
-                                type="file" style="visibility: hidden; position: absolute;"></span>
-                          <span class="btn btn-danger ng-hide" ng-show="$flow.files.length" ng-click="$flow.cancel()">
-                            Remove
-                          </span>
-                        </div>
-                        <p style="font-size: 14px">
-                            Only PNG,GIF,JPG,JEPG files allowed.
-                        </p>
-                    </div>
                 </div>
                 <div>
                     <input type="text" class="info pull-right col-md-6" ng-model="publishData.title">
@@ -40,6 +23,9 @@
             </div>
 
             <div class="center-block">
+                <div class="col-md-12">
+                    <input class="btn col-md-10 pull-right" type="file" ng-model="ImageDataURL" base-sixty-four-input>
+                </div>
                 <div>
                     <select class="info pull-right col-md-9" name="categories" ng-model="publishData.categoryid">
                         <option ng-repeat="category in allCategories" title="{{category.name}}" value="{{category.id}}">
@@ -58,7 +44,7 @@
             </div>
 
             <div>
-                <button class="btn btn-default center-block" type="submit" ng-click="publish(publishData)">Publish
+                <button class="btn btn-default center-block" type="submit" ng-click="publish(publishData, ImageDataURL)">Publish
                 </button>
                 <button class="btn btn-default center-block" ng-click="showAllAds()">Cancel</button>
             </div>

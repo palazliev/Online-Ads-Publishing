@@ -1,4 +1,4 @@
-var softUni = angular.module('softUniModule', ['ngRoute', 'flow'])
+var softUni = angular.module('softUniModule', ['ngRoute', 'flow', 'naif.base64'])
     .config(function ($routeProvider) {
         $routeProvider.when('/register', {
             templateUrl: 'templates/register.html',
