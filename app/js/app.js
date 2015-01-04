@@ -25,7 +25,7 @@ var softUni = angular.module('softUniModule', ['ngRoute', 'naif.base64'])
             templateUrl: 'templates/login.html',
             controller:'loginController'
         });
-        $routeProvider.when('/user/ads', {
+        $routeProvider.when('/user/adss', {
             templateUrl: 'templates/myAds.html',
             resolve: {
                 auth: ["$q", "loginService", function($q, loginService) {
