@@ -17,9 +17,11 @@ softUni.controller('publishNewAdController', function ($scope, $q, $http) {
         $http({method:'POST', url:'http://softuni-ads.azurewebsites.net/api/user/ads', headers:headers, data:publishData})
             .then(function(result) {
                 console.log(result);
+                $scope.publishSccMsg=result.data.message;
             }, function(error) {
                 deferred.reject(error);
                 console.log(error);
+                $scope.publishErrMsg=error.data.message;
 
             });
 

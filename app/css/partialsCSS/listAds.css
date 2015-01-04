@@ -3,7 +3,8 @@
 }
 
 .listAdsPhoto{
-    height: 175px;
+    max-height: 200px;
+    max-width: 200px;
     padding: 10px;
     margin-top: 15px;
     box-sizing: border-box;

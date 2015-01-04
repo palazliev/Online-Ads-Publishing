@@ -17,7 +17,7 @@ softUni.factory('loginService', function($http, $q, $window, $rootScope){
             deferred.resolve($rootScope.userInfo);
                 user.username='';
                 user.password='';
-            $window.location='#/';
+            $window.location='#/user/home';
 
         }, function(error) {
             deferred.reject(error);

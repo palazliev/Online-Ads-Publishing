@@ -64,9 +64,7 @@ footer{
 .form-group{
     padding-left: 10px;
 }
-aside{
 
-}
 .aside li{
     list-style-type: none;
     text-align: center;
@@ -89,8 +87,6 @@ label{
     font-weight: normal;
     font-size: 20px;
 }
-
-
 
 .form-heading{
     font-weight: bold;
@@ -119,7 +115,6 @@ label{
     border-radius: 7px;
     font-size: 16px;
 }
-
 
 .btnHref{
     margin: 15px auto;
