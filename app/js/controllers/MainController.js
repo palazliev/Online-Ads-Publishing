@@ -245,7 +245,12 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         return deferred.promise;
     };
     $scope.changeimage=false;
+    $scope.deleteimage=false;
     $scope.changeImageBtn=function(){
+        $scope.changeimage=true;
+    };
+    $scope.deleteImageBtn=function(){
+        $scope.deleteimage=true;
         $scope.changeimage=true;
     };
     $scope.editAd=function(myAd, imageDataUrl){
@@ -254,12 +259,19 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         var accessToken = $scope.userInfo.accessToken;
         var accHeader = 'Bearer '+accessToken;
         var headers={Authorization: accHeader};
-        myAd['imageDataUrl']='data:image/jpeg;base64,'+imageDataUrl.base64;
+        if(imageDataUrl) {
+            myAd['imageDataUrl'] = 'data:image/jpeg;base64,' + imageDataUrl.base64;
+        }
+        if($scope.deleteimage==true){
+            myAd['imageDataUrl']='';
+        }
+
         myAd['changeimage']=$scope.changeimage;
         $http({method:'PUT', url:url, headers:headers, data:myAd})
             .then(function(result) {
                 $scope.editSccMsg=result.data.message;
                 $scope.changeimage=false;
+                $scope.deleteimage=false;
                 console.log(result)
             }, function(error) {
                 $scope.editErrMsg=error.data.message;
