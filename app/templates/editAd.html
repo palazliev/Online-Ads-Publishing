@@ -25,6 +25,7 @@
             <div class="col-md-12">
 
                 <div class="col-md-12">
+                    <button class="btn btn-default center-block pull-right" ng-click="changeImageBtn()">Change image</button>
                     <input class="btn col-md-10 pull-right" type="file" ng-model="imageDataUrl" base-sixty-four-input>
                 </div>
                 <div>
@@ -32,7 +33,7 @@
                         <option ng-repeat="category in allCategories" title="{{category.name}}" value="{{category.id}}">{{category.name}}</option>
                     </select>
                     <span class="label pull-right">Category</span>
-                </div>.
+                </div>
                 <div>
                     <select class="info pull-right col-md-9" name="towns" ng-model="myAd.townId">
                         <option ng-repeat="town in allTowns" title="{{town.name}}" value="{{town.id}}">{{town.name}}</option>
