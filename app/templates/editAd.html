@@ -6,7 +6,12 @@
         <hr>
         <div>
             <div class="col-md-12">
-                <div class="photo col-md-3 pull-right">photo</div>
+                <div class="col-md-3 pull-right">
+                    <div style="width: 150px; height: 200px;">
+                        <img ng-src="{{myAd.imageDataUrl}}" ng-hide="ImageDataURL" style="max-width: 200px; max-height: 200px">
+                        <img ng-src="{{'data:image/jpeg;base64,'+ImageDataURL.base64}}" ng-show="ImageDataURL" style="max-width: 200px; max-height: 200px">
+                    </div>
+                </div>
                 <div>
                     <input type="text" class="info pull-right col-md-6" ng-model="myAd.title" placeholder="{{myAd.title}}">
                     <span class="label pull-right">Title</span>
@@ -18,12 +23,9 @@
             </div>
 
             <div class="col-md-12">
-                <div>
-                    <button class="btn btn-default pull-right">Change image</button>
-                    <button class="btn btn-default pull-right">Delete image</button>
-                    <button class="btn btn-default pull-right">Browse</button>
-                    <div class="info pull-right col-md-9">sdsa</div>
-                    <span class="label pull-right">image</span>
+
+                <div class="col-md-12">
+                    <input class="btn col-md-10 pull-right" type="file" ng-model="ImageDataURL" base-sixty-four-input>
                 </div>
                 <div>
                     <select class="info pull-right col-md-9" name="categories" ng-model="myAd.categoryId">
