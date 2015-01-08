@@ -245,12 +245,14 @@ softUni.controller('SoftUniController', function($scope, mainData, loginService,
         return deferred.promise;
     };
 
-    $scope.editAd=function(myAd){
+    $scope.editAd=function(myAd, imageDataUrl){
         var deferred = $q.defer();
         var url='http://softuni-ads.azurewebsites.net/api/user/ads/' + myAd.id;
         var accessToken = $scope.userInfo.accessToken;
         var accHeader = 'Bearer '+accessToken;
         var headers={Authorization: accHeader};
+        myAd['imageDataUrl']='data:image/jpeg;base64,'+imageDataUrl.base64;
+        myAd['changeimage']=true;
         $http({method:'PUT', url:url, headers:headers, data:myAd})
             .then(function(result) {
                 $scope.editSccMsg=result.data.message;

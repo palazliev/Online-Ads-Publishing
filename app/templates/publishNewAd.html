@@ -8,7 +8,7 @@
             <div class="center-block clearfix">
                 <div class="col-md-3 pull-right">
                         <div style="width: 150px; height: 200px;">
-                            <img ng-src="{{'data:image/jpeg;base64,'+ImageDataURL.base64}}" ng-show="ImageDataURL" style="max-width: 200px; max-height: 200px">
+                            <img ng-src="{{'data:image/jpeg;base64,'+imageDataUrl.base64}}" ng-show="imageDataUrl" style="max-width: 200px; max-height: 200px">
                         </div>
                 </div>
                 <div>
@@ -24,7 +24,7 @@
 
             <div class="center-block">
                 <div class="col-md-12">
-                    <input class="btn col-md-10 pull-right" type="file" ng-model="ImageDataURL" base-sixty-four-input>
+                    <input class="btn col-md-10 pull-right" type="file" ng-model="imageDataUrl" base-sixty-four-input>
                 </div>
                 <div>
                     <select class="info pull-right col-md-9" name="categories" ng-model="publishData.categoryid">
@@ -44,7 +44,7 @@
             </div>
 
             <div>
-                <button class="btn btn-default center-block" type="submit" ng-click="publish(publishData, ImageDataURL)">Publish
+                <button class="btn btn-default center-block" type="submit" ng-click="publish(publishData, imageDataUrl)">Publish
                 </button>
                 <button class="btn btn-default center-block" ng-click="showAllAds()">Cancel</button>
             </div>

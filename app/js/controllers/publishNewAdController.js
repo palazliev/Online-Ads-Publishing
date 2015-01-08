@@ -8,11 +8,11 @@ softUni.controller('publishNewAdController', function ($scope, $q, $http) {
         console.log($scope.obj);
     };
 
-    $scope.publish=function publish(publishData, ImageDataURL) {
+    $scope.publish=function publish(publishData, imageDataUrl) {
         var accessToken = $scope.userInfo.accessToken;
         var accHeader = 'Bearer '+accessToken;
         var headers={Authorization: accHeader};
-        publishData['ImageDataURL']='data:image/jpeg;base64,'+ImageDataURL.base64;
+        publishData['imageDataUrl']='data:image/jpeg;base64,'+imageDataUrl.base64;
         var deferred = $q.defer();
         $http({method:'POST', url:'http://softuni-ads.azurewebsites.net/api/user/ads', headers:headers, data:publishData})
             .then(function(result) {
